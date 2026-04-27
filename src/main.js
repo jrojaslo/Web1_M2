@@ -1,29 +1,25 @@
-// Punto de entrada y ejecución
-// src/main.js
-import { recursosEstacion, eventosConsumo } from './datos.js';
-import { procesarMotor } from './motor.js';
+import { recursosEstacion, eventosConsumo } from "./datos.js";
+import { procesarMotor } from "./motor.js";
 
-// 1. Ejecutar motor
 const reporte = procesarMotor(recursosEstacion, eventosConsumo);
 
-// 2. Imprimir en consola (única forma de output permitida)
-console.log("=== DIAGNÓSTICO ESTACIÓN NEXUS ===");
+console.log("*** DIAGNÓSTICO ESTACIÓN NEXUS ***");
 
-console.log("1. ESTADO FINAL DE RECURSOS:");
+console.log("1. Estado final de recursos:");
 console.table(reporte.estadoFinal);
 
-console.log("2. MÓDULOS EN PELIGRO (BAJO UMBRAL CRÍTICO):");
+console.log("2. Módulos en peligro (Bajo umbral crítico):");
 if (reporte.largoPeligro === 0) {
   console.log("Ninguno. Estabilidad nominal.");
 } else {
   console.table(reporte.peligro);
 }
 
-console.log("3. ALERTAS DE TRANSFERENCIA REQUERIDA:");
+console.log("3. Alertas de transferencia requerida:");
 if (reporte.largoAlertas === 0) {
   console.log("Ninguna. Capacidad local suficiente.");
 } else {
   console.table(reporte.alertas);
 }
 
-console.log("=== FIN DEL DIAGNÓSTICO ===");
+console.log("*** FIN DEL DIAGNÓSTICO ***");

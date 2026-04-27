@@ -1,6 +1,4 @@
-// Mock data y constantes
 
-// src/datos.js
 export const recursosEstacion = [
   { modulo: "Habitacional", recurso: "Oxígeno", cantidad: 1500, umbralCritico: 500 },
   { modulo: "Habitacional", recurso: "Agua", cantidad: 800, umbralCritico: 200 },
